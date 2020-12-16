@@ -37,14 +37,14 @@ def promote(update: Update, context: CallbackContext) -> str:
 
     if not (promoter.can_promote_members or
             promoter.status == "creator") and not user.id in DRAGONS:
-        message.reply_text("You don't have the necessary rights to do that!")
+        message.reply_text("Hatt Chutiye Tu Admin Nai Hai Kyo Try Kar Raha hai!")
         return
 
     user_id = extract_user(message, args)
 
     if not user_id:
         message.reply_text(
-            "You don't seem to be referring to a user or the ID specified is incorrect.."
+            "Blind Hai Kya Kisiko Forward Karke Command De.."
         )
         return
 
@@ -55,7 +55,7 @@ def promote(update: Update, context: CallbackContext) -> str:
 
     if user_member.status == 'administrator' or user_member.status == 'creator':
         message.reply_text(
-            "How am I meant to promote someone that's already an admin?")
+            "Vo Pahele Se admin Hai So Mai Kya karu?")
         return
 
     if user_id == bot.id:
@@ -81,9 +81,9 @@ def promote(update: Update, context: CallbackContext) -> str:
     except BadRequest as err:
         if err.message == "User_not_mutual_contact":
             message.reply_text(
-                "I can't promote someone who isn't in the group.")
+                "Usko Group mai Bulake la Then I Promote.")
         else:
-            message.reply_text("An error occured while promoting.")
+            message.reply_text("Shayad Kuch Galat Ho Gaya.")
         return
 
     bot.sendMessage(
